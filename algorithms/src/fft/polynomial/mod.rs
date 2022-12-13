@@ -250,7 +250,6 @@ impl<'a, F: Field> Polynomial<'a, F> {
         }
     }
 }
-
 impl<F: PrimeField> Polynomial<'_, F> {
     /// Construct `Evaluations` by evaluating a polynomial over the domain `domain`.
     pub fn evaluate_over_domain(poly: impl Into<Self>, domain: EvaluationDomain<F>) -> Evaluations<F> {

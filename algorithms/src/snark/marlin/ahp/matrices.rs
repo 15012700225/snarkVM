@@ -168,7 +168,7 @@ pub(crate) fn matrix_evals<F: PrimeField>(
     for (r, row) in matrix.iter().enumerate() {
         for (val, i) in row {
             let row_val = elems[r];
-            let col_val = elems[constraint_domain.reindex_by_subdomain(input_domain, *i)];
+            let col_val = elems[constraint_domain.reindex_by_subdomain(*input_domain, *i)];
 
             // We are dealing with the transpose of M
             row_vec.push(col_val);
@@ -265,7 +265,7 @@ mod tests {
         let elements = constraint_domain.elements().collect::<Vec<_>>();
         let reindexed_inverse_map = (0..constraint_domain.size())
             .map(|i| {
-                let reindexed_i = constraint_domain.reindex_by_subdomain(&input_domain, i);
+                let reindexed_i = constraint_domain.reindex_by_subdomain(*(&input_domain), i);
                 (elements[reindexed_i], i)
             })
             .collect::<HashMap<_, _>>();

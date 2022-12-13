@@ -252,7 +252,7 @@ impl<F: PrimeField, MM: MarlinMode> AHPForR1CS<F, MM> {
         for (matrix, eta) in matrices.iter().zip_eq(matrix_randomizers) {
             for (r, row) in matrix.iter().enumerate() {
                 for (coeff, c) in row.iter() {
-                    let index = constraint_domain.reindex_by_subdomain(input_domain, *c);
+                    let index = constraint_domain.reindex_by_subdomain(*input_domain, *c);
                     t_evals_on_h[index] += &(eta * coeff * r_alpha_x_on_h[r]);
                 }
             }

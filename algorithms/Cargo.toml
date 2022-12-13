@@ -23,26 +23,6 @@ include = [ "Cargo.toml", "src", "README.md", "LICENSE.md" ]
 license = "GPL-3.0"
 edition = "2021"
 
-[[bench]]
-name = "variable_base"
-path = "benches/msm/variable_base.rs"
-harness = false
-
-[[bench]]
-name = "poseidon_sponge"
-path = "benches/crypto_hash/poseidon.rs"
-harness = false
-
-[[bench]]
-name = "fft"
-path = "benches/fft/fft.rs"
-harness = false
-
-[[bench]]
-name = "marlin"
-path = "benches/snark/marlin.rs"
-harness = false
-
 [dependencies.snarkvm-curves]
 path = "../curves"
 version = "0.9.11"
@@ -67,12 +47,6 @@ default-features = false
 [dependencies.snarkvm-utilities]
 path = "../utilities"
 version = "0.9.11"
-default-features = false
-
-[dependencies.snarkvm-algorithms-cuda]
-path = "./cuda"
-version = "0.9.11"
-optional = true
 default-features = false
 
 [dependencies.aleo-std]
@@ -143,6 +117,8 @@ version = "1.0"
 version = "0.4"
 optional = true
 
+[dependencies.snarkvm-cuda]
+path = "../../snarkvm-cuda"
 [dev-dependencies.expect-test]
 version = "1.1.0"
 
@@ -176,7 +152,7 @@ wasm = [
   "snark",
   "wasm-bindgen-futures"
 ]
-cuda = [ "snarkvm-algorithms-cuda" ]
+cuda = [ "rust-gpu-tools" ]
 parallel = [
   "rayon",
   "snarkvm-fields/parallel",

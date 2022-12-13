@@ -26,9 +26,6 @@ pub use evaluations::Evaluations;
 pub mod polynomial;
 pub use polynomial::{DensePolynomial, Polynomial, SparsePolynomial};
 
-#[cfg(test)]
-mod tests;
-
 use snarkvm_fields::FftField;
 
 /// Types that can be FFT-ed must implement this trait.

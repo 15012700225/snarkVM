@@ -26,7 +26,7 @@ edition = "2021"
 [workspace]
 members = [
   "algorithms",
-  "algorithms/cuda",
+  #"algorithms/cuda",
   "circuit",
   "circuit/account",
   "circuit/algorithms",
@@ -106,7 +106,7 @@ cli = [
   "thiserror"
 ]
 aleo-cli = [ "snarkvm-synthesizer/aleo-cli" ]
-cuda = [ "snarkvm-algorithms/cuda", "snarkvm-synthesizer/cuda" ]
+cuda = [ "snarkvm-algorithms/cuda"]
 parameters_no_std_out = [ "snarkvm-parameters/no_std_out" ]
 parallel = [
   "rayon",
