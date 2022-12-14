@@ -44,6 +44,7 @@ impl<'a, F: PrimeField> PolyMultiplier<'a, F> {
 
     #[inline]
     pub fn add_polynomial(&mut self, poly: DensePolynomial<F>, label: impl ToString) {
+        println!("2222222222222222-----------------{}", poly.len());
         self.polynomials.push((label.to_string(), Cow::Owned(poly)))
     }
 
@@ -54,6 +55,7 @@ impl<'a, F: PrimeField> PolyMultiplier<'a, F> {
 
     #[inline]
     pub fn add_polynomial_ref(&mut self, poly: &'a DensePolynomial<F>, label: impl ToString) {
+        println!("111111111111111111-----------------{}", poly.len());
         self.polynomials.push((label.to_string(), Cow::Borrowed(poly)))
     }
 
